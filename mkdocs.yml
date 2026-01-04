@@ -1,1 +1,77 @@
-site_name: My Docs
+site_name: C++ Cheatsheet
+site_url: https://yourusername.github.io/cpp-cheatsheet/
+repo_url: https://github.com/yourusername/cpp-cheatsheet
+repo_name: GitHub
+
+# 1. The Theme Configuration
+theme:
+  name: material
+  
+  # The "Stunning" Dark Mode Settings
+  palette: 
+    # Palette toggle for dark mode (Default)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate   # This is the dark theme
+      primary: black  # Header color (Black looks very premium)
+      accent: cyan    # Highlights (Cyan pops against black)
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+    # Palette toggle for light mode (Optional, but good for users)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+  # 2. Modern UI Features
+  features:
+    - navigation.tabs        # Moves top-level sections to a top header (very clean)
+    - navigation.sections    # Groups sidebar items nicely
+    - navigation.expand      # Opens sidebar groups by default
+    - navigation.top         # "Back to Top" button appears when scrolling up
+    - toc.integrate          # Merges Table of Contents into the left sidebar (saves space)
+    - search.suggest         # Intelligent search auto-complete
+    - search.highlight       # Highlights search terms in the text
+    - content.code.copy      # Adds a "Copy" button to all code blocks
+    - content.tabs.link      # Links tabs to the URL (great for sharing)
+    - navigation.instant     # KEY FEATURE: Loads pages without refreshing (feels like an SPA)
+
+# 3. Typography (Google Fonts)
+font:
+  text: Roboto           # Clean, modern sans-serif
+  code: JetBrains Mono   # The best font for code (ligatures support)
+
+# 4. Extensions to make your notes look Pro
+markdown_extensions:
+  - admonition           # Enables colorful "Note", "Warning", "Tip" boxes
+  - pymdownx.details     # Enables "Collapsible" details blocks
+  - pymdownx.superfences # Allows nesting code blocks inside other blocks
+  
+  # Syntax Highlighting
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  
+  # Math Support (Essential for Big O notation etc.)
+  - pymdownx.arithmatex:
+      generic: true
+
+  # Diagram Support (Flowcharts/Memory layouts)
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+# 5. MathJax Configuration (Required for the Math support above)
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
